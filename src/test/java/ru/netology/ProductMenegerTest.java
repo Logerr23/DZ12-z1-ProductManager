@@ -45,13 +45,33 @@ public class ProductMenegerTest {
     }
 
     @Test
-    public void searchByTest(){
+    public void searchByFindMultipleMatches(){
 
         Product[] expected = {item1, item2,};
         Product[] actual = manager.searchBy("Стрелок");
 
         Assertions.assertArrayEquals(expected, actual);
     }
+
+    @Test
+    public void searchByTestFindOneMatch() {
+
+        Product[] expected = {item4};
+        Product[] actual = manager.searchBy("Прислуга");
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void searchByTestFindsNoMatch() {
+
+        Product[] expected = {};
+        Product[] actual = manager.searchBy("Извлечение троих");
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+
 
 
 }
